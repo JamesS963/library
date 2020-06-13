@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+@media ( min-width : 800px) {
+	.card {
+		margin-top: 5%;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
+
+.card-header{
+	background-color:#DAA520;
+}
