@@ -12,7 +12,6 @@ import org.springframework.security.core.GrantedAuthority;
 import com.springproject.library.security.Role;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
