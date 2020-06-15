@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<title>Books</title>
+
+
+</head>
+
+<body>
+
+	<div class="container">
+		<h2>Create Book</h2>
+
+		<form method="post" enctype="multipart/form-data" th:action="@{/book/create(${_csrf.parameterName}=${_csrf.token})}" th:object="${book}">
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="title">Title</label> <input type="text"
+						class="form-control" th:field="*{title}" id="title" name="title">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="author">Author</label> <input type="text"
+						class="form-control" th:field="*{author}" id="author"
+						name="author">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label for="description">Description</label>
+
+					<textarea class="form-control" id="description"
+						th:field="*{description}" rows="3"></textarea>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="isbn">ISBN</label> <input type="text"
+						class="form-control" id="isbn" name="isbn">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="size">Page count</label> <input type="text"
+						class="form-control" id="" name="size">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="stock">Quantity</label> <input type="text"
+						class="form-control" id="stock" name="stock">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="cover">Cover</label> <input
+					type="file" class="form-control-file" id="cover" th:field="*{cover}">
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+
+	</div>
+
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

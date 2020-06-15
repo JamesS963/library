@@ -7,4 +7,5 @@ import com.springproject.library.model.Book;
 public interface BookService {
 	public Iterable<Book> getAll();
 	public Optional<Book> get(Long id);
+	public Book create(Book book);
 }

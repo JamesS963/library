@@ -8,6 +8,7 @@
 
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
 <title>Books</title>
 
 
@@ -19,17 +20,18 @@
 
 		<div class="card" th:each="book: ${books}">
 			<div class="card-header">
-				<img th:src="@{book.cover}">
+				<img th:src="|data:image/png;base64,${book.coverToBaseSixtyFour()}">
 				<a th:href="@{/book/__${book.id}__}"><h3 th:text="${book.title}"></h3></a>
 			</div>
 			<div class="card-body">
 				<p th:text="'author: '+ ${book.author}"></p>
+
 			</div>
 		</div>
 
 	</div>
-	
-	
+
+
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
