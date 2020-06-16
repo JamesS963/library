@@ -11,12 +11,12 @@ import org.springframework.security.core.GrantedAuthority;
 
 import com.springproject.library.security.Role;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Authority implements GrantedAuthority {
 
 	private static final long serialVersionUID = 1L;

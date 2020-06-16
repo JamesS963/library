@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<title>Register</title>
+
+
+</head>
+
+<body>
+
+
+	<div class="card">
+		<div class="card-header">
+			<h2 class="mb-0">Register</h2>
+		</div>
+
+		<div class="card-body">
+
+			<form method="post" th:object="${user}" th:action="@{/user/create}"
+				id="registerForm">
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="username">Username</label> <input type="text"
+							class="form-control" id="username" name="username"
+							th:field="*{username}">
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="password">Password</label> <input type="password"
+							class="form-control" id="password" name="password"
+							th:field="*{password}">
+					</div>
+				</div>
+
+				<div class="form-check" th:each="authority, i: *{authorities}">
+					<input type="hidden" th:field="*{authorities[__${i.index}__].authority.id}">
+					<input type="hidden" th:field="*{authorities[__${i.index}__].authority.role}">
+					<input class="form-check-input" type="checkbox" id="defaultCheck1"
+						th:field="*{authorities[__${i.index}__].checked}"> <label
+						class="form-check-label" for="defaultCheck1"
+						th:text="*{authorities[__${i.index}__].authority.role}"></label>
+
+				</div>
+
+				<button type="submit" class="btn btn-primary">Register</button>
+			</form>
+		</div>
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
