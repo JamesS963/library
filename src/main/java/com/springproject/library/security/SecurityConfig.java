@@ -32,8 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-		http.formLogin().loginPage("/login");
+
+		http.formLogin().loginPage("/login").successForwardUrl("/books");
+		http.logout().logoutUrl("/logout");
 	}
 
 }

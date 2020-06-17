@@ -9,10 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -76,7 +74,7 @@ public class BookControllerTest {
 	@WithMockUser(username = "testUser", password = "testPassword")
 	public void testGetBookReturnsBook() throws Exception {
 		Book testBook = new Book();
-		testBook.setId(1L);
+		testBook.setBookId(1L);
 
 		when(bookService.get(1L)).thenReturn(Optional.of(testBook));
 		mockMvc.perform(get("/book/1")).andExpect(status().isOk()).andExpect(view().name("book"))
@@ -109,7 +107,7 @@ public class BookControllerTest {
 	public void testRentBookPostCreatesArentedBook() throws Exception {
 		
 		User user = new User("username","password");
-		user.setId(1L);
+		user.setUserId(1L);
 		
 		byte[] cover = new byte[1];
 		cover[0]='i';

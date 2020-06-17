@@ -43,7 +43,7 @@
 				</div>
 
 				<div class="form-check" th:each="authority, i: *{authorities}">
-					<input type="hidden" th:field="*{authorities[__${i.index}__].authority.id}">
+					<input type="hidden" th:field="*{authorities[__${i.index}__].authority.authorityId}">
 					<input type="hidden" th:field="*{authorities[__${i.index}__].authority.role}">
 					<input class="form-check-input" type="checkbox" id="defaultCheck1"
 						th:field="*{authorities[__${i.index}__].checked}"> <label

@@ -101,7 +101,7 @@ public class BookController {
 		bookWithdraw.setUser(user);
 
 		
-		Optional<Book> book = bookService.get(bookForm.getBook().getId());
+		Optional<Book> book = bookService.get(bookForm.getBook().getBookId());
 		bookWithdraw.setBook(book.get());
 
 		LocalDate rentDate = LocalDate.now();

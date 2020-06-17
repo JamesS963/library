@@ -23,10 +23,13 @@
 			<div class="card-header">
 				<img th:if="${book.cover!=null}"
 					th:src="|data:image/png;base64,${book.coverToBaseSixtyFour()}">
-				<a th:href="@{/book/__${book.id}__}"><h3 th:text="${book.title}"></h3></a>
+				<a th:href="@{/book/__${book.bookId}__}"><h3
+						th:text="${book.title}"></h3></a>
 			</div>
+
 			<div class="card-body">
 				<p th:text="'author: '+ ${book.author}"></p>
+				<a th:href="@{/book/rent/__${book.bookId}__}">borrow</a>
 			</div>
 		</div>
 

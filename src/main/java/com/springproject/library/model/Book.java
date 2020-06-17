@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Column(name="BOOK_ID")
+	private Long bookId;
 
 	private String isbn;
 	private String title;
@@ -45,7 +46,7 @@ public class Book {
 	public Book(Long id, String isbn, String title, String author, String description, int size, int stock,
 			byte[] cover) {
 		super();
-		this.id = id;
+		this.bookId = id;
 		this.isbn = isbn;
 		this.title = title;
 		this.author = author;

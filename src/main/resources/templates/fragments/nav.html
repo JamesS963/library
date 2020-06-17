@@ -1,5 +1,15 @@
-<nav class="navbar navbar-light"  th:fragment="navbar">
-		 <a class="navbar-brand" th:href="@{/user/create}">Create User</a>
-		  <a class="navbar-brand" th:href="@{/login}">Login</a>
-		   <a class="navbar-brand" th:href="@{/book/create}">create Book</a>
+<nav class="navbar navbar-light" th:fragment="navbar">
+
+
+	<a class="navbar-brand" th:href="@{/books}">books</a> <a
+		sec:authorize="isAnonymous()" class="navbar-brand" th:href="@{/login}">Login</a>
+
+	<a sec:authorize="isAuthenticated()" class="navbar-brand"
+		th:href="@{/logout}">Logout</a> <a sec:authorize="isAuthenticated()"
+		class="navbar-brand" th:href="@{/myRentedBooks}">My Borrowed books</a>
+	<div sec:authorize="hasRole('ROLE_LIBRARIAN')">
+		<a class="navbar-brand" th:href="@{/user/create}">Create User</a> <a
+			class="navbar-brand" th:href="@{/book/create}">Create Book</a><a
+			class="navbar-brand" th:href="@{/borrowed}">View Borrowed Books</a>
+	</div>
 </nav>

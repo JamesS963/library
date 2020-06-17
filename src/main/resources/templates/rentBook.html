@@ -11,15 +11,14 @@
 <link rel="stylesheet" th:href="@{/css/index.css}">
 <title>Rent Book</title>
 
-
 </head>
 
 <body>
 	<h2 th:text="'rent '+${bookForm.book.title}"></h2>
 	<form method="post" th:action="@{/book/rent}" th:object="${bookForm}">
 
-		<input type="hidden" th:field="*{book.id}">  <label>Rent Days</label> <input
-			type="text" th:field="*{days}"> <label>Rentee
+		<input type="hidden" th:field="*{book.bookId}"> <label>Rent
+			Days</label> <input type="text" th:field="*{days}"> <label>Rentee
 			Username</label> <input type="text" th:field="*{user}">
 
 		<button type="submit">Rent</button>

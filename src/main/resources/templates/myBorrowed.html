@@ -8,17 +8,16 @@
 
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-<title>book</title>
+<title>Your Borrowed Books</title>
 </head>
 
 <body>
-	<div th:insert="fragments/nav"></div>
+<div th:insert="fragments/nav"></div>
+<h1>Your Borrowed Books</h1>
 	<div th:each="withdraw: ${bookWithdraws}">
 		<h2 th:text="${withdraw.book.title}"></h2>
-		<p th:text="'Renter: '+${withdraw.user.username}"></p>
 		<p th:text="'due date: ' + ${withdraw.dueDate}"></p>
 		<div th:if="${withdraw.dueDate.compareTo(withdraw.dueDate.now())}<0">Overdue</div>
-		<a th:href="@{/bookWithdraw/return/__${withdraw.bookWithdrawId}__}">Return</a>
 	</div>
 
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>

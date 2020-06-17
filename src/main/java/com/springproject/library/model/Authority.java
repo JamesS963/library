@@ -1,5 +1,6 @@
 package com.springproject.library.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,7 +26,8 @@ public class Authority implements GrantedAuthority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Column(name="AUTHORITY_ID", unique=true, nullable=false)
+	private Long authorityId;
 
 	@Enumerated(EnumType.STRING)
 	private Role role;

@@ -15,7 +15,7 @@ import lombok.Data;
 public class BookWithdraw {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long bookWithdrawId;
 
 	@ManyToOne
 	private Book book;
