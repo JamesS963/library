@@ -1,7 +1,6 @@
 package com.springproject.library.web;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springproject.library.form.UserForm;
 import com.springproject.library.model.Authority;
-import com.springproject.library.model.User;
 import com.springproject.library.service.AuthorityService;
 import com.springproject.library.service.UserDetailsServiceImpl;
 
@@ -38,6 +36,7 @@ public class UserController {
 	@PostMapping("/user/create")
 	public String postCreateUser(@ModelAttribute("user") UserForm user, Model model) {
 		log.info("user is " + user.toString());
+
 		if (userService.loadUserByUsername(user.getUsername()) != null) {
 			model.addAttribute("user", user);
 			return "register";

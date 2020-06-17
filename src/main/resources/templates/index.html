@@ -17,6 +17,7 @@
 <body>
 
 	<div class="container">
+		<div th:insert="fragments/nav"></div>
 
 		<div class="card" th:each="book: ${books}">
 			<div class="card-header">

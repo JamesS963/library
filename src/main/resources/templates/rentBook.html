@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<title>Rent Book</title>
+
+
+</head>
+
+<body>
+	<h2 th:text="'rent '+${bookForm.book.title}"></h2>
+	<form method="post" th:action="@{/book/rent}" th:object="${bookForm}">
+
+		<input type="hidden" th:field="*{book.id}">  <label>Rent Days</label> <input
+			type="text" th:field="*{days}"> <label>Rentee
+			Username</label> <input type="text" th:field="*{user}">
+
+		<button type="submit">Rent</button>
+	</form>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

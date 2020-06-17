@@ -41,11 +41,22 @@ public class Book {
 		this.stock = stock;
 		this.cover = cover;
 	}
-	
+
+	public Book(Long id, String isbn, String title, String author, String description, int size, int stock,
+			byte[] cover) {
+		super();
+		this.id = id;
+		this.isbn = isbn;
+		this.title = title;
+		this.author = author;
+		this.description = description;
+		this.size = size;
+		this.stock = stock;
+		this.cover = cover;
+	}
+
 	public String coverToBaseSixtyFour() {
 		return Base64.getEncoder().encodeToString(this.cover);
 	}
-	
-	
 
 }
